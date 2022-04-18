@@ -68,12 +68,15 @@ The following tools were used in the construction of the project:
 
 #### [](https://github.com/neves-gabriel/laBoleria-backend)**Server** ([NodeJS](https://nodejs.org/en/))
 
+- **[TypeScript](https://www.typescriptlang.org/)**
 - **[Express](https://expressjs.com/)**
 - **[CORS](https://expressjs.com/en/resources/middleware/cors.html)**
+- **[Helmet](https://helmetjs.github.io/)**
 - **[dotENV](https://github.com/motdotla/dotenv)**
 - **[Joi](https://github.com/hapijs/joi)**
 - **[bcrypt](https://github.com/kelektiv/node.bcrypt.js)**
 - **[Day.js](https://github.com/iamkun/dayjs)**
+- **[faker](https://www.npmjs.com/package/faker)**
 - **[PostgreSQL client for node.js](https://github.com/brianc/node-postgres)**
 
 > See the file [package.json](https://github.com/neves-gabriel/valexAPI/blob/master/package.json)
