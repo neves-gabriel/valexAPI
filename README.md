@@ -76,7 +76,7 @@ The following tools were used in the construction of the project:
 - **[Day.js](https://github.com/iamkun/dayjs)**
 - **[PostgreSQL client for node.js](https://github.com/brianc/node-postgres)**
 
-> See the file [package.json](https://github.com/neves-gabriel/valexAPI/blob/main/package.json)
+> See the file [package.json](https://github.com/neves-gabriel/valexAPI/blob/master/package.json)
 
 ---
 
