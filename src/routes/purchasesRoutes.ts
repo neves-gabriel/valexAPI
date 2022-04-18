@@ -12,7 +12,7 @@ purchasesRoutes.post(
   validateSchema(schemas.createPurchaseSchema),
   validateCardID,
   validatePassword,
-  controller.createPurchase
+  controller.createPurchase,
 );
 
 export default purchasesRoutes;

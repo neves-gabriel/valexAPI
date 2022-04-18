@@ -1,5 +1,5 @@
 import cors from "cors";
-import express, { json, NextFunction, Request, Response } from "express";
+import express, { json, Request, Response } from "express";
 import helmet from "helmet";
 import "express-async-errors";
 
@@ -10,19 +10,14 @@ app.use(json());
 app.use(cors());
 app.use();
 app.use(
-  (
-    error: { response: { status: number } },
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) => {
+  (error: { response: { status: number } }, req: Request, res: Response) => {
     console.log(error);
     if (error.response) {
       return res.sendStatus(error.response.status);
     }
 
     res.sendStatus(500);
-  }
+  },
 );
 
 const PORT = process.env.PORT || 5000;

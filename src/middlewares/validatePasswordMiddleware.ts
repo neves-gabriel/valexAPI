@@ -4,7 +4,7 @@ import * as cardsServices from "../services/cardsServices";
 export async function validatePassword(
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) {
   const { card } = res.locals;
   const { password } = req.body;

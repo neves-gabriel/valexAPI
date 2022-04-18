@@ -10,7 +10,7 @@ rechargesRoutes.post(
   "/recharges",
   validateApiKey,
   validateSchema(schemas.createRechargeSchema),
-  controller.createRecharge
+  controller.createRecharge,
 );
 
 export default rechargesRoutes;

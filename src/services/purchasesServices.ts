@@ -42,7 +42,7 @@ export async function sumPayments(cardId: number) {
   const initialValue = 0;
   const sum = payments.reduce(
     (acc, current) => acc + current.amount,
-    initialValue
+    initialValue,
   );
 
   return sum;

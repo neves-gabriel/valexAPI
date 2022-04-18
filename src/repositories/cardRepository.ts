@@ -33,7 +33,7 @@ export async function find() {
 export async function findById(id: number) {
   const result = await connection.query<Card, [number]>(
     "SELECT * FROM cards WHERE id=$1",
-    [id]
+    [id],
   );
 
   return result.rows[0];
@@ -41,11 +41,11 @@ export async function findById(id: number) {
 
 export async function findByTypeAndEmployeeId(
   type: TransactionTypes,
-  employeeId: number
+  employeeId: number,
 ) {
   const result = await connection.query<Card, [TransactionTypes, number]>(
     `SELECT * FROM cards WHERE type=$1 AND "employeeId"=$2`,
-    [type, employeeId]
+    [type, employeeId],
   );
 
   return result.rows[0];
@@ -54,14 +54,14 @@ export async function findByTypeAndEmployeeId(
 export async function findByCardDetails(
   number: string,
   cardholderName: string,
-  expirationDate: string
+  expirationDate: string,
 ) {
   const result = await connection.query<Card, [string, string, string]>(
     ` SELECT 
         * 
       FROM cards 
       WHERE number=$1 AND "cardholderName"=$2 AND "expirationDate"=$3`,
-    [number, cardholderName, expirationDate]
+    [number, cardholderName, expirationDate],
   );
 
   return result.rows[0];
@@ -98,7 +98,7 @@ export async function insert(cardData: CardInsertData) {
       originalCardId,
       isBlocked,
       type,
-    ]
+    ],
   );
 }
 
@@ -115,10 +115,10 @@ export async function update(id: number, cardData: CardUpdateData) {
       SET ${cardColumns}
     WHERE $1=id
   `,
-    [id, ...cardValues]
+    [id, ...cardValues],
   );
 }
 
 export async function remove(id: number) {
-  connection.query<any, [number]>("DELETE FROM cards WHERE id=$1", [id]);
+  connection.query<unknown, [number]>("DELETE FROM cards WHERE id=$1", [id]);
 }

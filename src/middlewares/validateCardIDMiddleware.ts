@@ -5,7 +5,7 @@ import * as repository from "../repositories/cardRepository";
 export async function validateCardID(
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) {
   let cardId = Number(req.params.cardId);
 

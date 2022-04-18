@@ -5,7 +5,7 @@ import * as errors from "../errors/index";
 export default async function validateAPIKey(
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) {
   const { "x-api-key": key } = req.headers;
 

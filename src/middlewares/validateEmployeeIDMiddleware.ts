@@ -5,7 +5,7 @@ import * as errors from "../errors/index";
 export default async function validateEmployeeId(
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) {
   const { employeeId }: { employeeId: number } = req.body;
   const { company } = res.locals;

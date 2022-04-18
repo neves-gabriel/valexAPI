@@ -33,8 +33,9 @@ export async function sumRecharges(cardId: number) {
 
   const initialValue = 0;
   const sum = recharges.reduce(
-    (acc, current) => acc + current.amount,
-    initialValue
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (acc: any, current: { amount: any }) => acc + current.amount,
+    initialValue,
   );
 
   return sum;

@@ -16,7 +16,7 @@ interface Employee {
 
 export async function create(
   employee: Employee,
-  cardType: repository.TransactionTypes
+  cardType: repository.TransactionTypes,
 ) {
   const { id: employeeId, fullName } = employee;
 
@@ -58,7 +58,7 @@ export async function create(
 export async function activate(
   securityCode: string,
   password: string,
-  cardId: number
+  cardId: number,
 ) {
   if (password.length !== 4)
     throw errors.UnprocessableEntity("Password must have 4 digits.");
@@ -99,12 +99,12 @@ export async function getById(cardId: number) {
 export async function getByCardDetails(
   number: string,
   cardholderName: string,
-  expirationDate: string
+  expirationDate: string,
 ) {
   const card = await repository.findByCardDetails(
     number,
     cardholderName,
-    expirationDate
+    expirationDate,
   );
 
   if (!card) throw errors.NotFound();
@@ -125,7 +125,7 @@ export function verifyExpirationDate(card: repository.Card) {
 export async function verifyPassword(card: repository.Card, password: string) {
   if (!card.password)
     throw errors.Forbidden(
-      "Card is unactive. To activate, send a post request to /cards/cardId"
+      "Card is unactive. To activate, send a post request to /cards/cardId",
     );
 
   const passwordValidation = await bcrypt.compare(password, card.password);
@@ -141,7 +141,7 @@ function verifyActive(card: repository.Card) {
 
 async function verifyType(
   cardType: repository.TransactionTypes,
-  employeeId: number
+  employeeId: number,
 ) {
   const transactionTypes = [
     "groceries",
@@ -156,7 +156,7 @@ async function verifyType(
 
   const doesCardExist = await repository.findByTypeAndEmployeeId(
     cardType,
-    employeeId
+    employeeId,
   );
   if (doesCardExist) throw errors.Conflict(`Employee's ${cardType} card`);
 }

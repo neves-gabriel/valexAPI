@@ -15,14 +15,14 @@ cardsRoutes.post(
   validateAPIKey,
   validateSchema(schemas.createCardSchema),
   validateEmployeeID,
-  controller.createCard
+  controller.createCard,
 );
 
 cardsRoutes.patch(
   "/cards/:cardId/activate",
   validateSchema(schemas.activateCardSchema),
   validateCardID,
-  controller.activateCard
+  controller.activateCard,
 );
 
 export default cardsRoutes;

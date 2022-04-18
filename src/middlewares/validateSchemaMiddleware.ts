@@ -8,7 +8,7 @@ export function validateSchema(schema: AnySchema) {
 
     if (validation.error) {
       const message = validation.error.details.map(
-        (detail: { message: string }) => detail.message.replace(/"/g, "")
+        (detail: { message: string }) => detail.message.replace(/"/g, ""),
       );
 
       throw errors.UnprocessableEntity(message);
