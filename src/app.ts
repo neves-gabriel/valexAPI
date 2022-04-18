@@ -2,10 +2,17 @@ import cors from "cors";
 import express, { json, Request, Response } from "express";
 import helmet from "helmet";
 import "express-async-errors";
+import RateLimit from "express-rate-limit";
 
 const app = express();
 
+const limiter = RateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 5,
+});
+
 app.use(helmet());
+app.use(limiter);
 app.use(json());
 app.use(cors());
 app.use();
